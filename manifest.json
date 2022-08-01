@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "Playback",
+	"version": "1.0",
+
+	"description": "Allows to change playback speed above the limit for some sites such as yt, etc.",
+	"homepage_url": "https://github.com/asdqdsa/playback-ff",
+
+
+	"icons": {
+		"48": "icons/playback-48.png"
+	},
+
+	"permissions": [
+    "activeTab"
+  ],
+
+	"browser_action": {
+		"default_icon": "icons/playback-48.png",
+		"default_title": "Playback",
+		"default_popup": "popup/playback.html"
+	}
+
+}
