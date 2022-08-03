@@ -1,15 +1,48 @@
-button {
-  height: 30px;
-  width: 30px;
-  outline: none;
-  margin: 10px;
-  border: none;
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  background-color: #637e79;
+  width: 48px;
+  height: 110px;
   border-radius: 2px;
-	background-color: blueviolet;
-	color: white;
 }
 
-button.current {
-  box-shadow: 0 0 0 2px white,
-              0 0 0 4px black;
+.popup__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+}
+
+.popup__button_text {
+  color: #fff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.popup__button_color-plus {
+  background-color: #70C090;
+}
+
+.popup__button_color-min {
+  background-color: #C24141;
+}
+
+.popup__speedometer {
+  width: 36px;
+  height: 14px;
+  color: #273e3a;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
 }
