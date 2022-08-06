@@ -1,24 +1,24 @@
 {
 	"manifest_version": 2,
-	"name": "Playback",
+	"name": "This is not a drill",
 	"version": "1.0",
 
-	"description": "Allows to change playback speed above the limit for some sites such as yt, etc.",
+	"description": "Makes videos go faster",
 	"homepage_url": "https://github.com/asdqdsa/playback-ff",
 
 
 	"icons": {
-		"48": "icons/playback-48.png"
+		"48": "icons/get_faster48.png"
 	},
 
 	"permissions": [
-    "activeTab"
+    "activeTab", "scripting"
   ],
 
 	"browser_action": {
-		"default_icon": "icons/playback-48.png",
-		"default_title": "Playback",
-		"default_popup": "popup/playback.html"
+		"default_icon": "icons/get_faster48.png",
+		"default_title": "Sanic",
+		"default_popup": "popup/popup.html"
 	}
 
 }
