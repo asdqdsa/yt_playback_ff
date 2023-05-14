@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "This is not a drill",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Makes videos go faster",
   "homepage_url": "https://github.com/asdqdsa/playback-ff",
@@ -12,7 +12,7 @@
 
   "permissions": ["activeTab", "scripting", "storage"],
 
-  "browser_action": {
+  "action": {
     "default_icon": "icons/get_faster48.png",
     "default_title": "Sanic",
     "default_popup": "popup/popup.html"

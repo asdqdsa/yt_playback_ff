@@ -7,10 +7,10 @@ git clone https://github.com/asdqdsa/yt_playback_ff \
 Go To about:addons in your browser \
 Click Options -> debug Add-ons \
 Click Load Temporary Add-on... \
-Select JSON file *manifest.json* within cloned folder \
+Select JSON file _manifest.json_ within cloned folder \
 Open and play any youtube video [https://www.youtube.com/] \
 Change speed of the video with extension
 
-
 ## Known bugs
-Current speed won't update if speed changes \
+
+fixed: Current speed won't update if speed changes \
