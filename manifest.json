@@ -16,5 +16,12 @@
     "default_icon": "icons/get_faster48.png",
     "default_title": "Sanic",
     "default_popup": "popup/popup.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "469d7f83-95c7-4fb9-b388-4b7aa90e4a78@mozmail.com",
+      "strict_min_version": "109.0"
+    }
   }
 }
