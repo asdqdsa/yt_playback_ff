@@ -4,52 +4,59 @@ const currentSpeed = document.getElementById('currentSpeed');
 const popUp = document.getElementById('popUp');
 const increment = 0.25;
 
-window.addEventListener('load', loadHandler);
-window.addEventListener('mouseleave', loadHandler);
-async function loadHandler() {
+window.addEventListener('load', onLoad);
+
+async function onLoad() {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  browser.scripting.executeScript({
+  const dataOnLoad = {
     target: { tabId: tab.id },
-    func: windowHandler,
-  });
-  const { actaulSpeed } = await browser.storage.local.get(['actaulSpeed']);
-  currentSpeed.textContent = await actaulSpeed;
+    args: [tab.id],
+    func: setPopupSpeed,
+  };
+  browser.scripting.executeScript(dataOnLoad);
+  const actaulSpeed = await browser.storage.local.get(['sanicSpeed']);
+  currentSpeed.textContent = await JSON.parse(actaulSpeed.sanicSpeed);
 }
 
-function windowHandler() {
+async function setPopupSpeed(tabId) {
+  const currentSpeed = document.getElementsByTagName('video')[0].playbackRate;
+  let localState = {
+    sanicState: {
+      tabId,
+      currentSpeed,
+    },
+  };
+  localStorage.setItem(['sanicSpeed'], JSON.stringify(localState.sanicState));
+
   browser.storage.local.set({
-    actaulSpeed: document.getElementsByTagName('video')[0].playbackRate,
+    sanicSpeed: currentSpeed,
   });
+  const test = await browser.storage.local.get(['sanicSpeed']);
 }
 
-speedUp.addEventListener('click', () => setSpeed(increment));
-slowDown.addEventListener('click', () => setSpeed(-1 * increment));
+speedUp.addEventListener('click', () => onIncrement(increment));
+slowDown.addEventListener('click', () => onIncrement(-1 * increment));
 
-async function setSpeed(increment) {
+async function onIncrement(increment) {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  browser.scripting.executeScript({
+  const dataOnIncrement = {
     target: { tabId: tab.id },
-    args: [increment],
-    func: handlerDown,
-  });
+    args: [increment, tab.id],
+    func: setVideoSpeed,
+  };
+  browser.scripting.executeScript(dataOnIncrement);
   currentSpeed.textContent = +currentSpeed.textContent + +increment;
 }
 
-async function handlerDown(...step) {
+async function setVideoSpeed(step, tabID) {
   step = Number(step);
+  tabID = Number(tabID);
   document.getElementsByTagName('video')[0].playbackRate += step;
   const curSpeed = document.getElementsByTagName('video')[0].playbackRate;
-  console.log(curSpeed);
-  localStorage.setItem(
-    ['sanicSpeed'],
-    JSON.stringify({ sanicSpeed: curSpeed })
-  );
-}
-
-function delagate(el, selector, eventKey, handler) {
-  el.addEventListener(eventKey, (event) => {
-    if (event.target.matches(selector)) {
-      handler(event.target);
-    }
-  });
+  console.log(curSpeed, tabID);
+  let sanicState = {
+    tabId: tabID,
+    currentSpeed: curSpeed,
+  };
+  localStorage.setItem(['sanicSpeed'], JSON.stringify(sanicState));
 }

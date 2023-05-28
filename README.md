@@ -1,16 +1,26 @@
 # Youtube Playback Speed Extension for Firefox
 
-## Tested version: Firefox [Version 103.0.1 (64-bit)]
+###### Tested version: Firefox [Version 109.0.1 (64-bit)]
 
-cd "PROJECT*DIRECTORY_FOLDER" \
+## Local Installation:
+
+cd "PROJECT\__DIRECTORY_FOLDER" \
 git clone https://github.com/asdqdsa/yt_playback_ff \
 Go To about:addons in your browser \
 Click Options -> debug Add-ons \
 Click Load Temporary Add-on... \
-Select JSON file \_manifest.json* within cloned folder \
-Open and play any youtube video [https://www.youtube.com/] \
-Change speed of the video with extension
+Select JSON file \_manifest.json_ within cloned folder
 
-## Known bugs
+## WEB installation (addons.mozilla.org):
 
---
+https://addons.mozilla.org/en-US/firefox/addon/video-playback-speed-extension/
+
+## How To Use:
+
+-Play a html5 video [https://www.youtube.com/] \
+-Change the speed of the video with extension
+
+## Known bugs:
+
+1.Playback speed not specified for individual tabs, causing false values to be shown \
+2.Extensions doesn't work with YT Short
